@@ -1,3 +1,178 @@
+<!DOCTYPE html>
 <html>
-<img src = "https://media.tenor.com/zF02xZA42L8AAAAM/%D0%B9%D0%BE%D1%83.gif"/>
+    <head>
+        <link rel="stylesheet" href="./main.css">
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+        <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="navitem">
+                    <a href="http://github.com/grnd-alt">
+                        <svg class="github" width="98" height="96" viewbox="0 0 98 96" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="introduction">
+                <div id="headline">
+                    <h1 class="h1-active"><span class="highlight">Salim Belakkaf</span></h1>
+                    <h1 class=""><span class="highlight">Frontend</span></h1>
+                    <h1 class=""><span class="highlight">Backend</span></h1>
+                    <h1 class=""><span class="highlight">UX-Design</span></h1>
+                    <h1 class=""><span class="highlight">Hardware Engineering</span></h1>
+                </div>
+                <div id="blob" class="blob">
+                    <img src="./assets/media/blob-scene-haikei.svg" alt="">
+                </div>
+            </div>
+
+
+
+            <div id="primarycontent">
+                <div id="maincarousel" class="carousel slide" data-bs-slide="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#maincarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#maincarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#maincarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="carousel-img">
+                                <img class="carousel-img" src="./assets/media/aerialhighway.jpg" alt="">
+                                <span class="imagesource">Photo by <a href="https://unsplash.com/@dnevozhai?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Denys Nevozhai</a> on <a href="https://unsplash.com/photos/aerial-photography-of-concrete-roads-7nrsVjvALnA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>
+                            </div>
+                            <div class="container">
+                                <div class="carousel-caption text-start">
+                                    <h1 class="highlight">Webfleet Solutions</h1>
+                                    <p>At Webfleet Solutions, I have gained a wealth of insights in frontend and backend development. With a great team and exciting projects, I was able to deepen my skills and develop smart solutions for technical challenges.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-img">
+                                <img class="carousel-img" src="./assets/media/leipzigbreit.png" alt="">
+                                <span class="imagesource">Photoy by <a href="https://pixabay.com/de/users/level17-design-555089/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1794094">level17-design</a> on <a href="https://pixabay.com/de//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1794094">Pixabay</a></span>
+                            </div>
+                            <div class="container">
+                                    <div class="carousel-caption">
+                                    <h1 class="highlight">HTWK Leipzig</h1>
+                                    <p>At the university, I was able to acquire profound theoretical knowledge in computer science. The diverse fields of this program allowed me to delve into various subject areas and develop a comprehensive understanding of the multifaceted world of computer science.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-img">
+                                <img src="./assets/media/robitcs.jpg" alt="" class="carousel-img">
+                                <p class="imagesource">Photo by <a href="https://unsplash.com/@nicolasthomas?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nicolas Thomas</a> on <a href="https://unsplash.com/photos/electronic-circuit-boards-near-tester-3GZi6OpSDcY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
+                            </div>
+                            <div class="container">
+                                <div class="carousel-caption text-end">
+                                    <h1 class="highlight">Private Projekte</h1>
+                                    <p>
+                                        I have extensively worked with Arduino hardware, smart home integrations, and web applications. Programming microcontrollers and designing smart living spaces have shaped my skills. The integration of physical objects and the development of user-friendly web applications fascinate me and further fuel my passion for creative technology projects.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#maincarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#maincarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div id="projects">
+                    <h1 class="main-header"><span class="highlight">Projects</span></h1>
+                    <div class="divider primary"></div>
+                    <h2 class="secondary-header"><span class="highlight">university</span></h2>
+                    <div class="divider secondary"></div>
+                    <div class="third-header display">
+                        <h2> Website</h2>
+                        <div class="projectcontent">
+                            <p>To bring this portfolio to life, I embarked on a meticulous design exploration, testing various layouts and aesthetics to ensure a harmonious blend of visual appeal and user experience. This iterative approach allowed me to fine-tune the design elements, ensuring that each component serves a purpose and contributes to the overall narrative of my work.</p>
+                            <div class="projectimage">
+                                <img src="./assets/media/website.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="third-header display">
+                        <h2> Agile Project</h2>
+                        <div class="projectcontent">
+                            <div class="projectimage">
+                                <img src="./assets/media/scrumagile.jpg" alt="">
+                                <p class="imagesource">Photo by <a href="https://unsplash.com/@slidebean?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Slidebean</a> on <a href="https://unsplash.com/photos/person-writing-on-white-board-iW9oP7Ljkbg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
+                            </div>
+                            <p class="right">In an Agile project, I played a key role in merging hardware programming with full-stack development. Tasked with linking a robotic device to a user-friendly web interface, our team embraced iterative sprints. Hardware programming involved configuring the device for precision, while full-stack efforts focused on creating an intuitive interface. Team synergy fostered efficient problem-solving, and rigorous testing ensured reliability. User feedback guided refinements, resulting in a seamless blend of hardware and software innovation.</p>
+                        </div>
+                    </div>
+                    <div class="third-header display">
+                        <h2>Games</h2>
+                        <div class="projectcontent">
+                            <p>Delved into game development, crafting a variety of small video games to hone my coding skills. Notably, I collaborated with a colleague on a Java-based rendition of the popular German board game "Mensch ärgere dich nicht." These projects reflect my passion for coding creativity and collaborative problem-solving in a dynamic, game-oriented context. It was a rewarding exploration into the intersection of programming and gaming, showcasing my versatility in the software development landscape.</p>
+                            <div class="projectimage">
+                                <img src="./assets/media/game.jpg" alt="">
+                            <p class="imagesource">
+                                Bild von <a href="https://pixabay.com/de/users/crookoo-18886/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=614898">Michael Zimmermann</a> auf <a href="https://pixabay.com/de//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=614898">Pixabay</a>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="third-header display">
+                        <h2> Hardware</h2>
+                        <div class="projectcontent">
+                            <div class="projectimage">
+                                <img src="./assets/media/robitcs.jpg" alt="">
+                                <p class="imagesource">Photo by <a href="https://unsplash.com/@nicolasthomas?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nicolas Thomas</a> on <a href="https://unsplash.com/photos/electronic-circuit-boards-near-tester-3GZi6OpSDcY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
+                            </div>
+                            <p class="right">Immersed in a hardware class, I independently took on projects guided by professors, exploring the intricacies of hardware circuits. One notable endeavor involved crafting a binary clock, highlighting my practical application of theoretical knowledge. These hands-on experiences enriched my understanding of hardware design, emphasizing the vital interplay between theory and application. The professors&prime; support enabled me to navigate the complexities of hardware projects with confidence and skill. This immersive exploration underscored my dedication to mastering the practical facets of hardware engineering.</p>
+                        </div>
+                    </div>
+                    <div class="third-header display">
+                        <h2> Robotics</h2>
+                        <div class="projectcontent">
+                            <p>In a subsequent class, I leveraged my foundational hardware knowledge to create a self-balancing robot, navigating on two wheels. Drawing on my previous experiences, I incorporated 3D printing for constructing the robot, blending precision and innovation. This project challenged me to apply theoretical concepts practically, emphasizing the synergy between hardware understanding and real-world application. Building the self-balancing robot not only expanded my skill set but also demonstrated my ability to integrate diverse technologies seamlessly. It was a hands-on journey that showcased my commitment to pushing the boundaries of hardware engineering.</p>
+                            <div class="projectimage">
+                                <img src="./assets/media/robotarm.jpg" alt="">
+                                <p class="imagesource">
+                                    Bild von <a href="https://pixabay.com/de/users/jarmoluk-143740/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2791671">Michal Jarmoluk</a> auf <a href="https://pixabay.com/de//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2791671">Pixabay</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="secondary-header"><span class="highlight">Private</span></h2>
+                    <div class="divider secondary"></div>
+                    <div class="third-header display">
+                        <h2> Smart Home</h2>
+                        <div class="projectcontent">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores sunt repellat eos reiciendis hic eum excepturi placeat voluptatum eius blanditiis necessitatibus consequatur iure neque, dolor ipsum adipisci reprehenderit suscipit officiis, tenetur at? Eum corporis illum est aliquid! Ipsam consequatur, obcaecati recusandae asperiores quidem cumque reiciendis perspiciatis libero pariatur ratione. Animi tempora possimus delectus vitae voluptate inventore tenetur optio expedita accusantium veniam sapiente, aliquid et in error temporibus ipsam, tempore quas ad totam aperiam at! Saepe dolores velit voluptatem amet quaerat iure, voluptates facere nobis reprehenderit dignissimos assumenda quas eum vel quod, maiores officia maxime laudantium. Fugit officiis nisi accusamus sed!</p>
+                        </div>
+                    </div>
+                    <div class="third-header display">
+                        <h2> Fullstack Website </h2>
+                        <div class="projectcontent">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores sunt repellat eos reiciendis hic eum excepturi placeat voluptatum eius blanditiis necessitatibus consequatur iure neque, dolor ipsum adipisci reprehenderit suscipit officiis, tenetur at? Eum corporis illum est aliquid! Ipsam consequatur, obcaecati recusandae asperiores quidem cumque reiciendis perspiciatis libero pariatur ratione. Animi tempora possimus delectus vitae voluptate inventore tenetur optio expedita accusantium veniam sapiente, aliquid et in error temporibus ipsam, tempore quas ad totam aperiam at! Saepe dolores velit voluptatem amet quaerat iure, voluptates facere nobis reprehenderit dignissimos assumenda quas eum vel quod, maiores officia maxime laudantium. Fugit officiis nisi accusamus sed!</p></h2>
+                        </div>
+                    </div>
+                    <h2 class="secondary-header"><span class="highlight">Professional</span></h2>
+                    <div class="divider secondary"></div>
+                    <div class="third-header display">
+                        <h2> Webfleet</h2>
+                        <div class="projectcontent">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores sunt repellat eos reiciendis hic eum excepturi placeat voluptatum eius blanditiis necessitatibus consequatur iure neque, dolor ipsum adipisci reprehenderit suscipit officiis, tenetur at? Eum corporis illum est aliquid! Ipsam consequatur, obcaecati recusandae asperiores quidem cumque reiciendis perspiciatis libero pariatur ratione. Animi tempora possimus delectus vitae voluptate inventore tenetur optio expedita accusantium veniam sapiente, aliquid et in error temporibus ipsam, tempore quas ad totam aperiam at! Saepe dolores velit voluptatem amet quaerat iure, voluptates facere nobis reprehenderit dignissimos assumenda quas eum vel quod, maiores officia maxime laudantium. Fugit officiis nisi accusamus sed!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./main.js"></script>
+    </body>
 </html>
