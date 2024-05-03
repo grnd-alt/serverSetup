@@ -12,6 +12,7 @@ services:
       - NEXTCLOUD_TRUSTED_DOMAINS = nextcloud.belakkaf.net
       - OVERWRITECLIURL=https://nextcloud.belakkaf.net
       - OVERWRITEPROTOCOL=https
+      - NC_setup_create_db_user=false
   nginx:
     build: ./nginx
     restart: unless-stopped
