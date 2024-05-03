@@ -10,7 +10,7 @@ server {
 server {
     listen 80;
     server_tokens off;
-    server_name *.belakkaf.net belakkaf.net;
+    server_name *.${SERVER_BASE_DOMAIN} ${SERVER_BASE_DOMAIN};
     location / {
         return 301 https://$host/$request_uri;
     }
@@ -20,12 +20,12 @@ server {
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
-    ssl_certificate /etc/nginx/ssl/live/opfer.belakkaf.net/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/live/opfer.belakkaf.net/privkey.pem;
-    server_name opfer.belakkaf.net www.opfer.belakkaf.net;
+    ssl_certificate /etc/nginx/ssl/live/opfer.${SERVER_BASE_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/opfer.${SERVER_BASE_DOMAIN}/privkey.pem;
+    server_name opfer.${SERVER_BASE_DOMAIN} www.opfer.${SERVER_BASE_DOMAIN};
     server_tokens off;
     location / {
-        root   /usr/share/nginx/html/opfer.belakkaf.net/;
+        root   /usr/share/nginx/html/opfer/;
         index  index.html index.htm;
     }
 }
@@ -34,12 +34,12 @@ server {
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
-    ssl_certificate /etc/nginx/ssl/live/belakkaf.net/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/live/belakkaf.net/privkey.pem;
-    server_name belakkaf.net www.belakkaf.net;
+    ssl_certificate /etc/nginx/ssl/live/${SERVER_BASE_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/${SERVER_BASE_DOMAIN}/privkey.pem;
+    server_name ${SERVER_BASE_DOMAIN} www.${SERVER_BASE_DOMAIN};
     server_tokens off;
     location / {
-        root   /usr/share/nginx/html/belakkaf.net/;
+        root   /usr/share/nginx/html/home/;
         index  index.html index.htm;
     }
 }
@@ -47,9 +47,9 @@ server {
 server {
     listen 80;
     listen [::]:80;
-    ssl_certificate /etc/nginx/ssl/live/smarthome.belakkaf.net/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/live/smarthome.belakkaf.net/privkey.pem;
-    server_name smarthome.belakkaf.net www.smarthome.belakkaf.net;
+    ssl_certificate /etc/nginx/ssl/live/smarthome.${SERVER_BASE_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/smarthome.${SERVER_BASE_DOMAIN}/privkey.pem;
+    server_name smarthome.${SERVER_BASE_DOMAIN} www.smarthome.${SERVER_BASE_DOMAIN};
     server_tokens off;
     location / {
         proxy_pass http://smarthome:3000/;
@@ -59,9 +59,9 @@ server {
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
-    ssl_certificate /etc/nginx/ssl/live/smarthome.belakkaf.net/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/live/smarthome.belakkaf.net/privkey.pem;
-    server_name smarthome.belakkaf.net www.smarthome.belakkaf.net;
+    ssl_certificate /etc/nginx/ssl/live/smarthome.${SERVER_BASE_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/smarthome.${SERVER_BASE_DOMAIN}/privkey.pem;
+    server_name smarthome.${SERVER_BASE_DOMAIN} www.smarthome.${SERVER_BASE_DOMAIN};
     server_tokens off;
     location / {
         proxy_pass http://smarthome:3000/;
@@ -73,10 +73,10 @@ server {
 server {
     listen       443 default_server ssl http2;
     listen [::]:443 ssl http2;
-    server_name  nextcloud.belakkaf.net;
+    server_name  nextcloud.${SERVER_BASE_DOMAIN};
     server_tokens off;
-    ssl_certificate /etc/nginx/ssl/live/nextcloud.belakkaf.net/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/live/nextcloud.belakkaf.net/privkey.pem;
+    ssl_certificate /etc/nginx/ssl/live/nextcloud.${SERVER_BASE_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/nextcloud.${SERVER_BASE_DOMAIN}/privkey.pem;
     add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
     client_max_body_size 4196M;
 

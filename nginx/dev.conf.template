@@ -1,0 +1,84 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+	index test.html;
+    }
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name opfer.${SERVER_BASE_DOMAIN} www.opfer.${SERVER_BASE_DOMAIN};
+    server_tokens off;
+    location / {
+        root   /usr/share/nginx/html/opfer/;
+        index  index.html index.htm;
+    }
+}
+
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ${SERVER_BASE_DOMAIN} www.${SERVER_BASE_DOMAIN};
+    server_tokens off;
+    location / {
+        root   /usr/share/nginx/html/home/;
+        index  index.html index.htm;
+    }
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name smarthome.${SERVER_BASE_DOMAIN} www.smarthome.${SERVER_BASE_DOMAIN};
+    server_tokens off;
+    location / {
+        proxy_pass http://smarthome:3000/;
+        proxy_set_header Host $host;
+    }
+}
+server {
+    listen 80;
+    listen [::]:80;
+    server_name smarthome.${SERVER_BASE_DOMAIN} www.smarthome.${SERVER_BASE_DOMAIN};
+    server_tokens off;
+    location / {
+        proxy_pass http://smarthome:3000/;
+        proxy_set_header Host $host;
+    }
+}
+
+
+server {
+    listen       80 default_server http2;
+    listen [::]:80 http2;
+    server_name  nextcloud.${SERVER_BASE_DOMAIN};
+    server_tokens off;
+    add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
+    client_max_body_size 4196M;
+
+    # #access_log  /var/log/nginx/host.access.log  main;
+
+    # location / {
+    #     root   /usr/share/nginx/html;
+    #     index  index.html index.htm;
+    # }
+
+    location / {
+        proxy_pass http://nextcloudtest/;
+        proxy_set_header Host $host;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
