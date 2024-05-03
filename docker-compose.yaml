@@ -21,6 +21,7 @@ services:
     restart: unless-stopped
     depends_on:
       - smarthome
+      - request-counter
     ports:
       - 80:80
       - 443:443
