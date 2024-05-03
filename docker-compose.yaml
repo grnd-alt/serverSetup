@@ -34,12 +34,19 @@ services:
     restart: unless-stopped
     volumes:
       - /share/files/dbms/pg-data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
     environment:
       - POSTGRES_DB=nextcloud_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+  db2:
+    image: postgres:13-alpine
+    restart: unless-stopped
+    volumes:
+      - /share/request-count/dbms/pg-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_NAME_COUNTER}
+      - POSTGRES_USER=${DB_USER_COUNTER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD_COUNTER}
   letsencrypt:
     image: certbot/certbot:latest
     volumes:
@@ -51,3 +58,12 @@ services:
       - ./envfiles/smarthome.env:/.env
     ports:
       - 3000:3000
+  request-counter:
+    build: https://github.com/grnd-alt/request-counter.git#main:backend
+    depends_on:
+      - db2
+    environment:
+        - DB_USER=${DB_USER_COUNTER}
+        - DB_PASSWORD=${DB_PASSWORD_COUNTER}
+        - DB_NAME=${DB_NAME_COUNTER}
+        - DB_URL=${DB_URL_COUNTER}
