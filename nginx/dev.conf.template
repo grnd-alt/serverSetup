@@ -41,6 +41,18 @@ server {
         proxy_set_header Host $host;
     }
 }
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name counter.${SERVER_BASE_DOMAIN} www.counter.${SERVER_BASE_DOMAIN};
+    server_tokens off;
+    location / {
+        proxy_pass http://request-counter:8080/;
+        proxy_set_header Host $host;
+    }
+}
+
 server {
     listen 80;
     listen [::]:80;

@@ -56,6 +56,7 @@ server {
         proxy_set_header Host $host;
     }
 }
+
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
@@ -69,6 +70,19 @@ server {
     }
 }
 
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    ssl_certificate /etc/nginx/ssl/live/counter.${SERVER_BASE_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/counter.${SERVER_BASE_DOMAIN}/privkey.pem;
+    server_name counter.${SERVER_BASE_DOMAIN} www.counter.${SERVER_BASE_DOMAIN};
+    server_tokens off;
+    location / {
+        proxy_pass http://request-counter:8080/;
+        proxy_set_header Host $host;
+    }
+}
 
 server {
     listen       443 default_server ssl http2;
