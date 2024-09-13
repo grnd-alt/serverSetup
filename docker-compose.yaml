@@ -39,6 +39,45 @@ services:
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
+  loki:
+    container_name: loki
+    volumes:
+      - ./loki:/mnt/config
+    ports:
+      - 3100:3100
+    image: grafana/loki:3.0.0
+    command: -config.file=/mnt/config/loki-config.yaml
+    networks:
+        - monitoring
+  promtail:
+    container_name: promtail
+    volumes:
+      - ./loki:/mnt/config
+      - /var/lib/docker/volumes/master_data/_data/:/var/log
+    links:
+      - loki
+    image: grafana/promtail:3.0.0
+    command: -config.file=/mnt/config/promtail-config.yaml
+    networks:
+      - monitoring
+  grafana:
+    image: grafana/grafana:10.0.3
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - ./grafana:/var/lib/grafana
+    networks:
+      - monitoring
+    depends_on:
+      - loki
+
+networks:
+  monitoring:
+    driver: bridge
 volumes:
   nextclouddata: 
   nextcloud_aio_mastercontainer:
