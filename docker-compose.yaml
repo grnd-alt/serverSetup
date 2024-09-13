@@ -25,6 +25,8 @@ services:
       - ./certbot/conf/:/etc/nginx/ssl/
     environment:
       - SERVER_BASE_DOMAIN=${SERVER_BASE_DOMAIN}
+    networks:
+        - monitoring
   db:
     image: postgres:13-alpine
     restart: unless-stopped
@@ -68,8 +70,10 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SERVER_DOMAIN = grafana.local
     volumes:
-      - ./grafana:/var/lib/grafana
+      - grafana:/var/lib/grafana
+      - ./grafana:/etc/grafana
     networks:
       - monitoring
     depends_on:
@@ -79,6 +83,7 @@ networks:
   monitoring:
     driver: bridge
 volumes:
+  grafana:
   nextclouddata: 
   nextcloud_aio_mastercontainer:
     name: nextcloud_aio_mastercontainer
