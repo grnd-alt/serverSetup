@@ -1,17 +1,7 @@
 server {
     listen 80;
     listen [::]:80;
-    server_name _;
-    location /.well-known/acme-challenge/ {
-        root /var/www/certbot;
-	index test.html;
-    }
-}
-
-server {
-    listen 80;
-    listen [::]:80;
-    server_name opfer.${SERVER_BASE_DOMAIN} www.opfer.${SERVER_BASE_DOMAIN};
+    server_name opferi.${SERVER_BASE_DOMAIN} www.opferi.${SERVER_BASE_DOMAIN};
     server_tokens off;
     location / {
         root   /usr/share/nginx/html/opfer/;
@@ -31,66 +21,34 @@ server {
     }
 }
 
+
 server {
     listen 80;
     listen [::]:80;
-    server_name smarthome.${SERVER_BASE_DOMAIN} www.smarthome.${SERVER_BASE_DOMAIN};
-    server_tokens off;
+    server_name stream.${SERVER_BASE_DOMAIN} www.stream.${SERVER_BASE_DOMAIN};
+
     location / {
-        proxy_pass http://smarthome:3000/;
+        proxy_pass http://rtmpStreaming:8080;
         proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
 
 server {
     listen 80;
     listen [::]:80;
-    server_name counter.${SERVER_BASE_DOMAIN} www.counter.${SERVER_BASE_DOMAIN};
+    server_name grafana.${SERVER_BASE_DOMAIN} www.grafana.${SERVER_BASE_DOMAIN};
+
     server_tokens off;
-    location / {
-        proxy_pass http://request-counter:8080/;
-        proxy_set_header Host $host;
-    }
-}
-
-server {
-    listen 80;
-    listen [::]:80;
-    server_name smarthome.${SERVER_BASE_DOMAIN} www.smarthome.${SERVER_BASE_DOMAIN};
-    server_tokens off;
-    location / {
-        proxy_pass http://smarthome:3000/;
-        proxy_set_header Host $host;
-    }
-}
-
-
-server {
-    listen       80 default_server http2;
-    listen [::]:80 http2;
-    server_name  nextcloud.${SERVER_BASE_DOMAIN};
-    server_tokens off;
-    add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
-    client_max_body_size 4196M;
-
-    # #access_log  /var/log/nginx/host.access.log  main;
-
-    # location / {
-    #     root   /usr/share/nginx/html;
-    #     index  index.html index.htm;
-    # }
 
     location / {
-        proxy_pass http://nextcloudtest/;
+        proxy_pass http://grafana:3000;
         proxy_set_header Host $host;
-    }
-
-    #error_page  404              /404.html;
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_redirect off;
     }
 }

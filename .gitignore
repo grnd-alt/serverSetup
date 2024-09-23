@@ -1,3 +1,4 @@
 certbot/*
 envfiles/*
 .env
+grafana/
